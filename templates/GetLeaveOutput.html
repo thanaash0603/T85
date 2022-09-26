@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body style="background-image: url('/static/background3.jpg');background-size: 100%;" >
+	<title>Check In</title>
+</head>
+<center>
+	<font color="black" size="5" style="font-family: avenir">
+
+		<h1 style="color: DodgerBlue">Employee Leave Information</h1>
+
+		<body bgcolor="lightgrey">
+
+			<form>
+
+				<div>
+
+			  		Employee ID:<br> {{ emp_id }} <br><br>
+
+			  		Name:<br> {{ name }} <br><br>
+
+			  		Office:<br> {{ office }} <br><br>
+
+			  		From Date :<br> {{ fdate }} <br><br>
+
+                    To Date :<br> {{ date }} <br><br>
+
+			  		Contact:<br> {{ contact }} <br><br>
+
+                    Team:<br> {{ team }} <br><br>
+
+                    Image location : <br> {{ object_url }} <br><br>
+
+
+
+
+
+			  	</div>
+
+			</form>
+                			</form>
+         <form action="/getleave" >
+            <button type="submit"
+                     style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;">Reset
+            </button>
+        </form>
+
+		</body>
+
+	</font>
+</center>
+</html>

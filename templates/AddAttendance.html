@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.active{
+  background-color: red;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: coral;}
+}
+
+.clear {
+    clear: both;
+}
+input[type=text] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 20%;
+}
+
+select {
+  width: 30%;
+  padding: 16px 20px;
+  border: blueviolet;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+    position: center;
+}
+</style>
+<head>
+    <body style="background-image: url('/static/background2.jpg');background-size: 30%;">
+    <title>Add Data</title>
+    <div class="navbar">
+
+
+<div class="dropdown">
+    <button class="dropbtn">Employee
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/showaddemp">Add New Employee </a>
+      <a href="/getemp">Search Employee</a>
+      <a href="/showsummary">View Summary</a>
+    </div>
+
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Attendance
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/addattendance">Add Attendance </a>
+      <a href="/getcheckin">Search Attendance</a>
+        <a href="/viewAttendance">View Attendance Summary</a>
+    </div>
+  </div>
+
+      <div class="dropdown">
+    <button class="dropbtn">Leave Form
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/addleave">Apply Leave</a>
+      <a href="/getleave">Search Leave</a>
+      <a href="/viewleave">View Leave Summary</a>
+    </div>
+
+  </div>
+
+  </div>
+
+</div>
+</div>
+</head>
+<center>
+    <font color="black" size="4" style="font-family: avenir">
+
+        <h1 style="color: Black">Add Employee Attendance</h1>
+
+        <body style="background-image: url('/static/background1.jpg');background-size: 100%;" >
+
+        <form action="/checkin" autocomplete="on" method="POST" enctype="multipart/form-data">
+
+<!--              <form autocomplete="on" method="POST" enctype="multipart/form-data">-->
+
+            Employee ID:<br> <input style="height:25px;font-size:14pt;" type="number" name="emp_id" autofocus
+                            size="40"><br><br>
+
+            Name:<br> <input style="height:25px;font-size:14pt;" type="text" name="name"><br><br>
+
+            Contact Number:<br> <input style="height:25px;font-size:14pt;" type="text" name="contact"><br><br>
+
+            <label for="officeteams">Office Team:</label><br>
+
+            <select name="officeteam" id="officeteam">
+                <option value="">--Select--</option>
+                <option value="Alpha">Alpha</option>
+                <option value="Beta">Beta</option>
+                <option value="Delta">Delta</option>
+                <option value="Gamma">Gamma</option>
+
+            </select><br><br>
+
+
+            <label for="Branchlocations">Branch Location:</label><br>
+
+            <select  name="Branchlocation" id="Branchlocation">
+                <option value="">--Select--</option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Selangor">Selangor</option>
+                 <option value="Ipoh">Ipoh</option>
+                 <option value="Penang">Penang</option>
+                 <option value="Johor">Johor</option>
+                 <option value="Melaka">Melaka</option>
+                 <option value="Perlis">Perlis</option>
+            </select><br><br>
+
+
+              <label for="date">Date:</label>
+              <input type="date" id="date" name="date"><br><br>
+
+              <label for="checkIn">Select a time:</label>
+             <input type="time" id="checkIn" name="checkIn"><br><br>
+
+
+
+
+
+
+            <button type="submit" onclick="Added();"
+                    style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;">Submit
+            </button>
+
+        </form>
+
+        <br>
+
+        <form action="/viewAttendance" >
+            <button type="submit"
+                     style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;">View Summary
+            </button>
+        </form>
+
+        </body>
+
+    </font>
+</center>
+
+<script>
+function Added() {
+  alert("Hello! Your check in has been recorded");
+}
+</script>
+</html>

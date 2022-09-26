@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.active{
+  background-color: red;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: coral;}
+}
+
+.clear {
+    clear: both;
+}
+</style>
+
+<script type="text/javascript">
+  function exportData(){
+    /* Get the HTML data using Element by Id */
+    var table = document.getElementById("myTable");
+
+    /* Declaring array variable */
+    var rows =[];
+
+      //iterate through rows of table
+    for(var i=0,row; row = table.rows[i];i++){
+        //rows would be accessed using the "row" variable assigned in the for loop
+        //Get each cell value/column from the row
+        column1 = row.cells[0].innerText;
+        column2 = row.cells[1].innerText;
+        column3 = row.cells[2].innerText;
+        column4 = row.cells[3].innerText;
+        column5 = row.cells[4].innerText;
+        column6 = row.cells[5].innerText;
+
+    /* add a new records in the array */
+        rows.push(
+            [
+                column1,
+                column2,
+                column3,
+                column4,
+                column5,
+                column6
+            ]
+        );
+
+        }
+        csvContent = "data:text/csv;charset=utf-8,";
+         /* add the column delimiter as comma(,) and each row splitted by new line character (\n) */
+        rows.forEach(function(rowArray){
+            row = rowArray.join(",");
+            csvContent += row + "\r\n";
+        });
+
+        /* create a hidden <a> DOM node and set its download attribute */
+        var encodedUri = encodeURI(csvContent);
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "Export.csv");
+        document.body.appendChild(link);
+         /* download the data file named "Stock_Price_Report.csv" */
+        link.click();
+}
+  </script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>View Summary</title>
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.active{
+  background-color: red;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: coral;}
+}
+
+.clear {
+    clear: both;
+}
+</style>
+</head>
+<body style="background-image: url('/static/background2.jpg');background-size: 30%;">
+
+<div class="navbar">
+
+
+<div class="dropdown">
+    <button class="dropbtn">Employee
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/showaddemp">Add New Employee </a>
+      <a href="/getemp">Search Employee</a>
+      <a href="/showsummary">View Summary</a>
+    </div>
+
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Attendance
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/addattendance">Add Attendance </a>
+      <a href="/getcheckin">Search Attendance</a>
+        <a href="/viewAttendance">View Attendance Summary</a>
+    </div>
+  </div>
+
+      <div class="dropdown">
+    <button class="dropbtn">Leave Form
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/addleave">Apply Leave</a>
+      <a href="/getleave">Search Leave</a>
+      <a href="/viewleave">View Leave Summary</a>
+    </div>
+
+  </div>
+
+  </div>
+                  <div style="float: right; ">
+                    <button id="btnExport" style="cursor:pointer;background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;" onclick="exportData();">Export</button>
+
+                </div>
+</div>
+</div>
+    <center>
+        <font color="black" size="4" style="font-family: avenir">
+
+            <h1 style="color: Black"><u>Employee Attendance</u></h1>
+
+
+
+    <div class="clear"></div>
+
+            <br/>
+
+
+<body style="background-image: url('/static/bg4.jpg');background-size: 100%;" >
+<form action="/viewAttendance" autocomplete="on" method="POST" enctype="multipart/form-data">
+    <table id="myTable">
+        <tr>
+            <th style="cursor:default;">Employee ID</th>
+            <th onclick="w3.sortHTML('#myTable','.item', 'td:nth-child(2)')">Name<i class="fa fa-sort"></i></th>
+            <th onclick="w3.sortHTML('#myTable','.item', 'td:nth-child(3)')">Contact<i class="fa fa-sort"></i></th>
+            <th onclick="w3.sortHTML('#myTable','.item', 'td:nth-child(4)')">Office Team<i class="fa fa-sort"></i></th>
+            <th onclick="w3.sortHTML('#myTable','.item', 'td:nth-child(5)')">Branch location<i class="fa fa-sort"></i></th>
+            <th onclick="w3.sortHTML('#myTable','.item', 'td:nth-child(6)')">Date<i class="fa fa-sort"></i></th>
+            <th onclick="w3.sortHTML('#myTable','.item', 'td:nth-child(6)')">Check In<i class="fa fa-sort"></i></th>
+        </tr>
+
+        {% for item in value %}
+        <tr class="item">
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td>{{item[3]}}</td>
+            <td>{{item[4]}}</td>
+            <td>{{item[5]}}</td>
+            <td>{{item[6]}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+
+</form>
+
+<br>
+
+</body>
+
+</font>
+</center>
+</head>
+<body>
+
+</body>
+</html>

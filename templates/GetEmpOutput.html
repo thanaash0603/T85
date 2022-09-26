@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body style="background-image: url('/static/background1.jpg');background-size: 30%;">
+	<title>Employee Information</title>
+	<style>
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.active{
+  background-color: red;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: coral;}
+}
+
+.clear {
+    clear: both;
+}
+input[type=text] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 20%;
+}
+
+.button {
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 16px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 100px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+</style>
+</head>
+<center>
+	<div class="navbar">
+
+
+<div class="dropdown">
+    <button class="dropbtn">Employee
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/showaddemp">Add New Employee </a>
+      <a href="/getemp">Search Employee</a>
+      <a href="/showsummary">View Summary</a>
+    </div>
+
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Attendance
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/addattendance">Add Attendance </a>
+      <a href="/getcheckin">Search Attendance</a>
+        <a href="/viewAttendance">View Attendance Summary</a>
+    </div>
+  </div>
+
+      <div class="dropdown">
+    <button class="dropbtn">Leave Form
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/addleave">Apply Leave</a>
+      <a href="/getleave">Search Leave</a>
+      <a href="/viewleave">View Leave Summary</a>
+    </div>
+
+  </div>
+
+  </div>
+
+</div>
+</div>
+	<font color="black" size="5" style="font-family: avenir">
+
+		<h1 style="color: DodgerBlue">Employee Information</h1>
+
+		<body bgcolor="lightgrey">
+
+			<form>
+
+				<div>
+
+			  		Employee ID:<br> {{ fmno }} <br><br>
+
+			  		First Name:<br> {{ name }} <br><br>
+
+			  		Contact:<br> {{ contact }} <br><br>
+
+			  		Team:<br> {{ team }} <br><br>
+
+			  		Location:<br> {{ location }} <br><br>
+
+                    Certification:<br> {{ certification }} <br><br>
+
+
+
+
+
+			  	</div>
+
+			</form>
+        			</form>
+         <form action="/getemp" >
+            <button type="submit"
+                     style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;">Reset
+            </button>
+        </form>
+
+		</body>
+
+	</font>
+</center>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check In</title>
+</head>
+<center>
+	<font color="black" size="5" style="font-family: avenir">
+
+		<h1 style="color: DodgerBlue">Employee Attendance Information</h1>
+        <body style="background-image: url('/static/background2.jpg');background-size: 30%;">
+
+		<body bgcolor="lightgrey">
+
+			<form>
+
+				<div>
+
+			  		Employee ID:<br> {{ emp_id }} <br><br>
+
+			  		Name:<br> {{ name }} <br><br>
+
+			  		Contact:<br> {{ contact }} <br><br>
+
+			  		Office Team:<br> {{ officeteam }} <br><br>
+
+			  		Branch Location:<br> {{ BranchLocation }} <br><br>
+
+                    Date:<br> {{ date }} <br><br>
+
+                    Check IN:<br> {{ checkIn }} <br><br>
+
+
+
+
+			  	</div>
+
+			</form>
+                			</form>
+         <form action="/getcheckin" >
+            <button type="submit"
+                     style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;">Reset
+            </button>
+        </form>
+
+		</body>
+
+	</font>
+</center>
+</html>
